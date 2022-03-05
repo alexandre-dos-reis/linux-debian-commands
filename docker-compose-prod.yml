@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+    linux-debian-commands:
+      container_name: linux-debian-commands
+      build: .
+      networks:
+        - caddy
+      labels:
+        caddy: linux-debian-commandes.alexandre-dosreis.me
+        caddy.reverse_proxy: "{{upstreams 3000}}"
+      environment:
+        - API_DOMAIN=${API_DOMAIN}
+
+networks:
+  caddy:
+    external: true

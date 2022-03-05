@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+    linux-debian-commands:
+      container_name: linux-debian-commands
+      build: .
+      ports:
+        - 3000:3000
