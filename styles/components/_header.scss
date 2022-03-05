@@ -1,0 +1,9 @@
+header {
+    grid-area: header;
+    padding: 10px 0px;
+    border-bottom: $borderStyle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $grey;
+}

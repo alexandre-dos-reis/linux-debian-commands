@@ -1,0 +1,51 @@
+@import "./globals/vars";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+        Helvetica Neue, sans-serif;
+    background-color: $white;
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 2px;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+.app {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: calc($navbarFr * 1fr) calc($mainFr * 1fr);
+    grid-template-areas:
+        "header header"
+        "navbar main"
+        "footer footer";
+
+    // Header
+    @import "./components/header";
+
+    // Main Command Selected
+    @import "./components/main";
+
+    // Navbar
+    @import "./components/navbar";
+    
+    // Footer
+    @import "./components/footer";
+}

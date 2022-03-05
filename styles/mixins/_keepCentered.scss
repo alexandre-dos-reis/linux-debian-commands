@@ -1,0 +1,3 @@
+@mixin keepCentered() {
+    margin-right: calc(100vw / ($navbarFr + $mainFr));
+  }

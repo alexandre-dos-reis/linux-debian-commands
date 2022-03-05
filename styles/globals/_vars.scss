@@ -1,0 +1,24 @@
+:root {
+    --shadow-color: 248deg 29% 31%;
+    --shadow-elevation-low: 0.5px 0.5px 1px hsl(var(--shadow-color) / 0.13),
+      1px 1px 2px -0.3px hsl(var(--shadow-color) / 0.37), 2.2px 2.4px 4.6px -0.6px hsl(var(--shadow-color) / 0.61);
+    --shadow-elevation-medium: 0.5px 0.5px 1px hsl(var(--shadow-color) / 0.13),
+      2.4px 2.6px 5px -0.2px hsl(var(--shadow-color) / 0.32), 5.1px 5.5px 10.5px -0.4px hsl(var(--shadow-color) / 0.51),
+      11px 11.8px 22.6px -0.6px hsl(var(--shadow-color) / 0.7);
+    --shadow-elevation-high: 0.5px 0.5px 1px hsl(var(--shadow-color) / 0.12),
+      5.7px 6.2px 11.8px -0.1px hsl(var(--shadow-color) / 0.21),
+      10.4px 11.2px 21.4px -0.2px hsl(var(--shadow-color) / 0.3),
+      15.7px 16.9px 32.4px -0.3px hsl(var(--shadow-color) / 0.39),
+      22.6px 24.3px 46.5px -0.4px hsl(var(--shadow-color) / 0.48),
+      32.2px 34.6px 66.3px -0.5px hsl(var(--shadow-color) / 0.56),
+      45.8px 49.2px 94.3px -0.6px hsl(var(--shadow-color) / 0.65),
+      64.3px 69.1px 132.4px -0.6px hsl(var(--shadow-color) / 0.74);
+  }
+  
+  // Variables
+  $borderStyle: 1px solid rgb(222, 222, 222);
+  $navbarFr: 1;
+  $mainFr: 5;
+  $white: rgb(255, 248, 248);
+  $black: rgb(46, 46, 46);
+  $grey: rgb(67, 67, 67);

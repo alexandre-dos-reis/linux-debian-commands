@@ -1,0 +1,53 @@
+@import "../mixins/scrollVertically";
+
+nav {
+    @include scrollVertically();
+    grid-area: navbar;
+    border-right: $borderStyle;
+    padding-right: 10px;
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+
+        li {
+            margin: 5px;
+            padding: 4px 6px;
+            cursor: pointer;
+            background-color: $black;
+            color: $white;
+            border-radius: 5px;
+            text-align: center;
+            font-family: monospace;
+            font-size: larger;
+            box-shadow: var(--shadow-elevation-low);
+            border: 1px solid $black;
+
+            &:hover {
+                background-color: $grey;
+                border: 1px solid $grey;
+            }
+        }
+
+        li.net-cmd {
+            $netCmdColor: rgb(83, 56, 121);
+            background-color: $netCmdColor;
+            color: $white;
+            border: 1px solid $netCmdColor;
+
+            &:hover {
+                $netCmdColorHover: rgb(111, 98, 130);
+                background-color: $netCmdColorHover;
+                border: 1px solid $netCmdColorHover;
+            }
+        }
+
+        li.item-selected {
+            background-color: $white !important;
+            color: $black !important;
+            border: 1px solid $grey !important;
+            cursor: default !important;
+        }
+    }
+}

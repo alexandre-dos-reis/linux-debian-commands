@@ -1,0 +1,92 @@
+@import "../mixins/scrollVertically";
+@import "../mixins/keepCentered";
+
+main {
+    @include scrollVertically();
+    grid-area: main;
+
+    .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin: 20px 0;
+        @include keepCentered();        
+
+        img {
+            $imageSize: 150px;
+            max-width: auto;
+            max-height: $imageSize;
+            object-fit: contain;
+        }
+    }
+
+    h2 {
+        text-align: center;
+        margin: 20px 0;
+        color: $grey;
+        @include keepCentered();
+    }
+
+    p {
+        margin-bottom: 20px;
+        padding: 0 50px;
+        font-weight: bolder;
+        color: $grey;
+        text-align: center;
+        @include keepCentered();
+    }
+
+    li {
+        margin: 0 50px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        padding: 10px 20px;
+        @include keepCentered();
+    }
+
+    .info {
+        margin-bottom: 10px;
+        color: $grey;
+    }
+
+    .inline-copy-code {
+        display: flex;
+    }
+
+    .copy-wrapper {
+        position: relative;
+        top: 8px;
+        right: 10px;
+        cursor: pointer;
+        svg {
+            fill: $black;
+            width: 20px;
+            height: auto;
+            &:hover {
+                fill: grey;
+            }
+            &:active {
+                fill: $white;
+            }
+            // filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+        }
+    }
+    
+    code {
+        font-size: larger;
+        color: $white;
+        background-color: $black;
+        padding: 8px;
+        border-radius: 5px;
+        // width: 100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        box-shadow: var(--shadow-elevation-medium);
+    }
+
+    .creator-site {
+        font-weight: bolder;
+    }
+}

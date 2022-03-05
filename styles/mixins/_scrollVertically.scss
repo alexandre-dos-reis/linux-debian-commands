@@ -1,0 +1,4 @@
+@mixin scrollVertically() {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
