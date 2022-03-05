@@ -5,6 +5,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install
 ADD . .
+RUN pnpm build
 RUN pnpm export
 
 FROM lipanski/docker-static-website:latest
