@@ -1,5 +1,6 @@
 @import "../mixins/scrollVertically";
 @import "../mixins/keepCentered";
+@import "../mixins/scrollbar";
 
 main {
     @include scrollVertically();
@@ -11,7 +12,7 @@ main {
         align-items: center;
         margin-top: 20px;
         margin: 20px 0;
-        @include keepCentered();        
+        @include keepCentered();
 
         img {
             $imageSize: 150px;
@@ -72,7 +73,7 @@ main {
             // filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
         }
     }
-    
+
     code {
         font-size: larger;
         color: $white;
@@ -84,9 +85,27 @@ main {
         overflow-x: auto;
         overflow-y: hidden;
         box-shadow: var(--shadow-elevation-medium);
+
+        &::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $black;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $darkGrey;
+            border-radius: 5px;
+            border: 3px solid $black;
+        }
     }
 
     .creator-site {
         font-weight: bolder;
     }
+
+    // @include scrollbar(14px, 14px, $darkGrey, 1px solid red, $white, 1px solid red);
 }

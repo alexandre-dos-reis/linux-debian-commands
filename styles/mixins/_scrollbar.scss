@@ -1,0 +1,23 @@
+@mixin scrollbar($size, $buttonSize, $thumbColor, $thumbBorder, $bgColor, $borderStyle) {
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+    &::-webkit-scrollbar-button {
+        width: buttonSize;
+        height: buttonSize;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $thumbColor;
+        border-left: $thumbBorder;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: $bgColor;
+        border-left: $borderStyle;
+        border-radius: 0px;
+    }
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+}
