@@ -96,6 +96,7 @@ main {
         }
 
         &::-webkit-scrollbar-track {
+            border: 0;
             background: $black;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;

@@ -6,7 +6,9 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install
 ADD . .
 RUN pnpm build
-RUN pnpm export
+EXPOSE 3000
 
-FROM lipanski/docker-static-website:latest
-COPY --from=builder /app/out .
+CMD [ "pnpm", "start" ]
+
+# FROM lipanski/docker-static-website:latest
+# COPY --from=builder /app/out .
