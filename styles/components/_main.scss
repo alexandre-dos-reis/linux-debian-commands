@@ -87,6 +87,10 @@ main {
         overflow-y: hidden;
         box-shadow: var(--shadow-elevation-medium);
 
+        .sign {
+            color: $signColor;
+        }
+
         &::-webkit-scrollbar {
             height: 10px;
         }

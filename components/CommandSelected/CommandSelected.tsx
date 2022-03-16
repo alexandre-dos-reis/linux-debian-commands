@@ -29,7 +29,7 @@ const CommandSelected = ({ command, assetsUrl }: CommandSelectedProps) => {
                 <CopyToClipboard stringToCopy={sc.item}>
                   <CopyIcon />
                 </CopyToClipboard>
-                <code>$ {sc.item}</code>
+                <code><span className="sign">{sc.sign}</span> {sc.item}</code>
               </div>
             </li>
           ))}
