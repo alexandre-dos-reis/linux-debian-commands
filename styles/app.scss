@@ -1,9 +1,12 @@
 @import "./globals/vars";
+@import "./mixins/scrollbar";
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+
+    @include scrollbar();
 }
 
 html,
@@ -32,6 +35,7 @@ ul {
     display: grid;
     height: 100vh;
     grid-template-columns: calc($navbarFr * 1fr) calc($mainFr * 1fr);
+    grid-template-rows: 1fr 20fr 1fr;
     grid-template-areas:
         "header header"
         "navbar main"

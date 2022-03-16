@@ -1,4 +1,5 @@
 import { command } from "types/command.type";
+import { useRouter } from "next/router";
 
 type NavbarProps = {
   commands: command[];
@@ -11,6 +12,19 @@ const Navbar = ({
   setCommandSelected,
   commandSelected,
 }: NavbarProps) => {
+  const router = useRouter();
+
+  const handleClick = (c: command) => {
+    router.replace(
+      `/${c.slug}`,
+      "",
+      {
+        shallow: true,
+      }
+    );
+    setCommandSelected(c);
+  };
+
   return (
     <nav>
       <ul>
@@ -27,7 +41,7 @@ const Navbar = ({
               {commandSelected.id === c.id ? (
                 <div>{c.tab}</div>
               ) : (
-                <div onClick={() => setCommandSelected(c)}>{c.tab}</div>
+                <div onClick={() => handleClick(c)}>{c.tab}</div>
               )}
             </li>
           ))}
