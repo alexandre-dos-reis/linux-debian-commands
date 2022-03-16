@@ -2,9 +2,9 @@
 
 ## TODOS
 
-- Style the scrollbars
+- ~~Style the scrollbars~~
 - Make title command bigger and nicer
-- Put selected command in the url / Static pages with regenerate
+- ~~Put selected command in the url / Static pages with regenerate~~
 - Handle Markdown
 - Animate onClick copy
 - Add a searchBar commands in the navbar
