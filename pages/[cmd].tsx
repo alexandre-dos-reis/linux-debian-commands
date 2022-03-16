@@ -50,8 +50,10 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ commands, assetsUrl }) => {
-  const [commandSelected, setCommandSelected] = useState<command>(commands[0]);
   const router = useRouter();
+  const [commandSelected, setCommandSelected] = useState<command>(
+    commands.find((c) => c.slug === router.query.cmd) as command
+  );
 
   useEffect(() => {
     const commandFound = commands.find((c) => c.slug === router.query.cmd);
