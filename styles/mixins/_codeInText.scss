@@ -1,0 +1,8 @@
+@mixin codeInText() {
+    background-color: $cream;
+    // font-family: inherit;
+    font-size: 1em;
+    box-shadow: none;
+    color: $black;
+    padding: 5px;
+}

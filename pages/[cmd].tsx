@@ -8,6 +8,8 @@ import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
+import { bundleMDX } from "mdx-bundler";
+import { addDescriptionMD, addSubCmdInfoMD } from "utils/replaceMdCommands";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const commands: command[] = (
@@ -16,9 +18,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
     )
   ).data.data;
 
+  const commandsWithoutEmpty = commands.filter(
+    (c) => c.sub_commands.length !== 0
+  );
+
+  const commandsWithMD = await addDescriptionMD(commandsWithoutEmpty);
+  const commandsWithSubInfoMD = await addSubCmdInfoMD(commandsWithMD);
+
   return {
     props: {
-      commands: commands.filter((c) => c.sub_commands.length !== 0),
+      commands: commandsWithSubInfoMD,
       assetsUrl: process.env.API_DOMAIN + "/assets/",
     },
     revalidate: 60,

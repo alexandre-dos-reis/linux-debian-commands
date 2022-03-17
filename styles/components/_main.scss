@@ -1,5 +1,6 @@
 @import "../mixins/scrollVertically";
 @import "../mixins/keepCentered";
+@import "../mixins/codeInText";
 // @import "../mixins/scrollbar";
 
 main {
@@ -33,11 +34,21 @@ main {
     p {
         margin-bottom: 20px;
         padding: 0 50px;
-        font-weight: bolder;
+        // font-weight: bolder;
         color: $grey;
         text-align: center;
+        font-size: 1.3rem;
+        line-height: 1.4;
         @include keepCentered();
+
+        code {
+            @include codeInText();
+        }
     }
+
+    // strong {
+    //     font-weight: bolder;
+    // }
 
     li {
         margin: 0 50px;
@@ -48,8 +59,21 @@ main {
     }
 
     .info {
-        margin-bottom: 10px;
         color: $grey;
+        width: 100%;
+
+        & > p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            padding: 0;
+            text-align: left;
+            margin-right: 0;
+            line-height: 1.8;
+
+            code {
+                @include codeInText();
+            }
+        }
     }
 
     .inline-copy-code {

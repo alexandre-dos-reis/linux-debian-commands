@@ -1,6 +1,9 @@
 import CopyToClipboard from "components/CopyToClipboard/CopyToClipboard";
 import { command } from "types/command.type";
 import CopyIcon from "components/svg/Copy";
+import { getMDXComponent } from "mdx-bundler/client";
+import { useMemo } from "react";
+import SubCommand from "./SubCommand";
 
 type CommandSelectedProps = {
   command: command;
@@ -8,6 +11,11 @@ type CommandSelectedProps = {
 };
 
 const CommandSelected = ({ command, assetsUrl }: CommandSelectedProps) => {
+  const DescMD = useMemo(
+    () => getMDXComponent(command.description),
+    [command.description]
+  );
+
   if (command) {
     return (
       <main>
@@ -18,22 +26,12 @@ const CommandSelected = ({ command, assetsUrl }: CommandSelectedProps) => {
         ) : (
           <h2>{command.title}</h2>
         )}
-        <p>{command.description}</p>
+        <DescMD />
         <ul>
           {command.sub_commands
             .sort((a, b) => a.sort - b.sort)
             .map((sc) => (
-              <li key={sc.id}>
-                <div className="info">{sc.info}</div>
-                <div className="inline-copy-code">
-                  <CopyToClipboard stringToCopy={sc.item}>
-                    <CopyIcon />
-                  </CopyToClipboard>
-                  <code>
-                    <span className="sign">{sc.sign}</span> {sc.item}
-                  </code>
-                </div>
-              </li>
+              <SubCommand key={sc.id} subCommand={sc} />
             ))}
         </ul>
       </main>
