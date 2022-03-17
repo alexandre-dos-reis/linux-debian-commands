@@ -1,5 +1,7 @@
 # Commands GNU/Linux | Debian | Ubuntu
 
+This is a collection of linux oriented debian commands written in French presented in a clean and simple web browser interface. Heavy use of markdown.
+
 ## TODOS
 
 - ~~Style the scrollbars~~
@@ -12,6 +14,9 @@
 - Add keyboard navigation for items in the navbar
 - Add smooth animations (optional)
 
-## Docker commands
+## Deploy
 
+- Go into dir : `cd ~/linux-debian-commands`
+- Get the last commit : `git pull`
+- Kill the container called : `linux-debian-commands`
 - Deploy with docker-compose : `sudo docker-compose -f docker-compose-prod.yml up -d --build --force-recreate`
