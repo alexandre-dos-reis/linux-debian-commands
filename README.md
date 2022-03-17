@@ -2,7 +2,7 @@
 
 This is a collection of linux oriented debian commands written in French presented in a clean and simple web browser interface. Heavy use of markdown.
 
-## TODOS
+## Todos
 
 - ~~Style the scrollbars~~
 - ~~Put selected command in the url / Static pages with regenerate~~
