@@ -9,25 +9,18 @@ import Footer from "components/Footer/Footer";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { bundleMDX } from "mdx-bundler";
-import { addDescriptionMD, addSubCmdInfoMD } from "utils/replaceMdCommands";
+import toMarkdown from "utils/replaceMdCommands";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const commands: command[] = (
     await axios.get(
       (process.env.API_DOMAIN + "/items/commands?fields=*.*") as string
     )
-  ).data.data;
-
-  const commandsWithoutEmpty = commands.filter(
-    (c) => c.sub_commands.length !== 0
-  );
-
-  const commandsWithMD = await addDescriptionMD(commandsWithoutEmpty);
-  const commandsWithSubInfoMD = await addSubCmdInfoMD(commandsWithMD);
+  ).data.data.filter((c: command) => c.sub_commands.length !== 0);
 
   return {
     props: {
-      commands: commandsWithSubInfoMD,
+      commands: await toMarkdown(commands),
       assetsUrl: process.env.API_DOMAIN + "/assets/",
     },
     revalidate: 60,

@@ -1,12 +1,20 @@
 @import "../mixins/scrollVertically";
 @import "../mixins/keepCentered";
 @import "../mixins/codeInText";
+@import "../mixins/textContour";
 // @import "../mixins/scrollbar";
 
 main {
     @include scrollVertically();
     grid-area: main;
     overflow-y: scroll;
+
+    a {
+        color: $linkColor;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 
     .image {
         display: flex;
@@ -21,14 +29,24 @@ main {
             max-width: auto;
             max-height: $imageSize;
             object-fit: contain;
+            filter: drop-shadow(15px 15px 7px hsl(var(--shadow-color) / 0.4));
         }
     }
 
     h2 {
         text-align: center;
-        margin: 20px 0;
-        color: $grey;
+        margin: 40px 0;
+        color: white;
+        @include textContour($grey);
+        letter-spacing: 4px;
+        font-size: 3.5rem;
+        font-family: Georgia;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: geometricPrecision;
         @include keepCentered();
+        filter: drop-shadow(10px 10px 7px hsl(var(--shadow-color) / 0.3));
     }
 
     p {

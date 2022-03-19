@@ -31,15 +31,13 @@ nav {
         }
 
         li.net-cmd {
-            $netCmdColor: rgb(83, 56, 121);
-            background-color: $netCmdColor;
+            background-color: $netCmd;
             color: $white;
-            border: 1px solid $netCmdColor;
+            border: 1px solid $netCmd;
 
             &:hover {
-                $netCmdColorHover: rgb(111, 98, 130);
-                background-color: $netCmdColorHover;
-                border: 1px solid $netCmdColorHover;
+                background-color: $netCmdHover;
+                border: 1px solid $netCmdHover;
             }
         }
 
