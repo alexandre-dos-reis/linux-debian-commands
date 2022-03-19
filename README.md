@@ -8,10 +8,10 @@ This is a collection of linux oriented debian commands written in French present
 - ~~Put selected command in the url / Static pages with regenerate~~
 - ~~Handle Markdown~~
 - ~~Handle Markdown style correctly: strong, code, etc...~~
-- Add link style in markdown, see composer example
-- Make title command bigger and nicer
-- Reduce image size
-- Add clickable image when present.
+- ~~Add link style in markdown, see composer example~~
+- ~~Make title command bigger and nicer~~
+- ~~Reduce image size~~
+- Add clickable image when present with hover effect.
 - Animate onClick copy
 - Add a searchBar commands in the navbar
 - Add keyboard navigation for items in the navbar
