@@ -11,6 +11,7 @@ This is a collection of linux oriented debian commands written in French present
 - ~~Add link style in markdown, see composer example~~
 - ~~Make title command bigger and nicer~~
 - ~~Reduce image size~~
+- Try to optimize the process of converting MD to HTML by concatening the subCommands together.
 - Add clickable image when present with hover effect.
 - Animate onClick copy
 - Add a searchBar commands in the navbar
