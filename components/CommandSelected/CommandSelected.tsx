@@ -16,15 +16,12 @@ const CommandSelected = ({ command, assetsUrl }: CommandSelectedProps) => {
     [command.description]
   );
 
-  // https://docs.directus.io/reference/files/#requesting-a-thumbnail
-  const directusImgConfig = "?fit=outside&width=150&height=150&quality=80"
-
   if (command) {
     return (
       <main>
         {command.image != null ? (
           <div className="image">
-            <img src={assetsUrl + command.image + directusImgConfig} alt={command.title} />
+            <img src={command.image} alt={command.title} />
           </div>
         ) : (
           <h2>{command.title}</h2>

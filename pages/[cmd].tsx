@@ -9,7 +9,7 @@ import Footer from "components/Footer/Footer";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { bundleMDX } from "mdx-bundler";
-import toMarkdown from "utils/replaceMdCommands";
+import AddMarkdownAndBase64 from "utils/replaceMdCommands";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const commands: command[] = (
@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      commands: await toMarkdown(commands),
+      commands: await AddMarkdownAndBase64(commands),
       assetsUrl: process.env.API_DOMAIN + "/assets/",
     },
     revalidate: 60,
