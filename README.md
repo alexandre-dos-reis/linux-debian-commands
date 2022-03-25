@@ -12,6 +12,7 @@ This is a collection of linux oriented debian commands written in French present
 - ~~Make title command bigger and nicer~~
 - ~~Reduce image size~~
 - Try to load the image inside the img tag with base64 / Server Side
+  - https://www.npmjs.com/package/image-to-base64
 - Try to optimize the process of converting MD to HTML by concatening the subCommands together.
 - Add clickable image when present with hover effect.
 - Animate onClick copy
