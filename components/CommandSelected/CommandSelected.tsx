@@ -1,20 +1,12 @@
-import CopyToClipboard from "components/CopyToClipboard/CopyToClipboard";
 import { command } from "types/command.type";
-import CopyIcon from "components/svg/Copy";
-import { getMDXComponent } from "mdx-bundler/client";
-import { useMemo } from "react";
 import SubCommand from "./SubCommand";
+import MdxComponent from "components/MDX/MdxComponent";
 
 type CommandSelectedProps = {
   command: command;
 };
 
 const CommandSelected = ({ command }: CommandSelectedProps) => {
-  const DescMD = useMemo(
-    () => getMDXComponent(command.description),
-    [command.description]
-  );
-
   if (command) {
     return (
       <main>
@@ -25,7 +17,7 @@ const CommandSelected = ({ command }: CommandSelectedProps) => {
         ) : (
           <h2>{command.title}</h2>
         )}
-        <DescMD />
+        <MdxComponent code={command.description} />
         <ul>
           {command.sub_commands
             .sort((a, b) => a.sort - b.sort)

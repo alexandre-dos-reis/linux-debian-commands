@@ -51,10 +51,9 @@ nav {
             color: $grey;
             font-size: 1.2rem;
             width: max-content;
-            // border-left: 1px solid $lightGrey;
-            // padding: 0 10px;
+            cursor: pointer;
             &:active {
-                background-color: $lightGrey;
+                color: red;
             }
         }
     }

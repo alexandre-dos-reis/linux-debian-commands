@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import axios from "axios";
 import type { command } from "types/command.type";
 import { useState, useEffect } from "react";
 import CommandSelected from "components/CommandSelected/CommandSelected";
@@ -9,12 +8,12 @@ import Footer from "components/Footer/Footer";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 import fetchCommands from "utils/fetchCommands";
-import toMarkdown from "utils/toMarkdown";
+import mdToHtml from "utils/toMarkdown";
 import toBase64 from "utils/toBase64";
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const commands = await fetchCommands();
-  const commandsMD = await toMarkdown(commands);
+  const commandsMD = await mdToHtml(commands);
   const commandsBase64 = await toBase64(commandsMD);
 
   return {
@@ -25,22 +24,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async (context) => {
-  const commands: command[] = (
-    await axios.get(
-      (process.env.API_DOMAIN + "/items/commands?fields=*.*") as string
-    )
-  ).data.data;
-
-  const paths = commands
-    .filter((c) => c.sub_commands.length !== 0)
-    .map((c) => {
-      return {
-        params: {
-          cmd: c.slug,
-        },
-      };
-    });
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = (await fetchCommands()).map((c) => {
+    return {
+      params: {
+        slug: c.slug,
+      },
+    };
+  });
   return { paths, fallback: "blocking" };
 };
 
@@ -51,11 +42,11 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ commands }) => {
   const router = useRouter();
   const [commandSelected, setCommandSelected] = useState<command>(
-    commands.find((c) => c.slug === router.query.cmd) as command
+    commands.find((c) => c.slug === router.query.slug) as command
   );
 
   useEffect(() => {
-    const commandFound = commands.find((c) => c.slug === router.query.cmd);
+    const commandFound = commands.find((c) => c.slug === router.query.slug);
 
     if (commandFound) {
       setCommandSelected(commandFound);

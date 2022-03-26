@@ -18,10 +18,9 @@ const Navbar = ({
   const [searchedValue, setSearchValue] = useState("");
 
   const handleClick = (c: command) => {
-    if (commandSelected.id === c.id)
-      router.replace(`/${c.slug}`, "", {
-        shallow: true,
-      });
+    router.replace(`/${c.slug}`, "", {
+      shallow: true,
+    });
     setCommandSelected(c);
   };
 
@@ -30,6 +29,10 @@ const Navbar = ({
   };
 
   if (commandSelected) {
+    const filteredCommands = commands.filter((c) =>
+      c.tab.includes(searchedValue)
+    );
+
     return (
       <nav>
         <div className="search-area">
@@ -42,14 +45,13 @@ const Navbar = ({
           />
           <button onClick={() => setSearchValue("")}>x</button>
         </div>
-        {commands.filter((c) => c.tab.includes(searchedValue)).length === 0 && (
-          <div className="cmd-not-found">Pas de commandes trouvées</div>
+        {filteredCommands.length === 0 && (
+          <div className="cmd-not-found">Aucune commandes trouvées !</div>
         )}
         <ul>
-          {commands
+          {filteredCommands
             .sort((a, b) => a.cmd_order - b.cmd_order)
-            .filter((c) => c.tab.includes(searchedValue))
-            .map((c, i, array) => (
+            .map((c) => (
               <li
                 key={c.id}
                 tabIndex={0}

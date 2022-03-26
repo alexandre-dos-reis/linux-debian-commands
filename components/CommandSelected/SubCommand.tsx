@@ -1,23 +1,17 @@
 import CopyToClipboard from "components/CopyToClipboard/CopyToClipboard";
 import CopyIcon from "components/svg/Copy";
-import { getMDXComponent } from "mdx-bundler/client";
-import { useMemo } from "react";
 import type { subCommand } from "types/subCommand.type";
+import MdxComponent from "components/MDX/MdxComponent";
 
 type SubCommandProps = {
   subCommand: subCommand;
 };
 
 const SubCommand = ({ subCommand }: SubCommandProps) => {
-  const SCinfoMD = useMemo(
-    () => getMDXComponent(subCommand.info),
-    [subCommand.info]
-  );
-
   return (
     <li key={subCommand.id}>
       <div className="info">
-        <SCinfoMD />
+        <MdxComponent code={subCommand.info} />
       </div>
       <div className="inline-copy-code">
         <CopyToClipboard stringToCopy={subCommand.item}>
