@@ -12,11 +12,11 @@ This is a collection of linux oriented debian commands written in French present
 - ~~Make title command bigger and nicer~~
 - ~~Reduce image size~~
 ~~- Try to load the image inside the img tag with base64 / Server Side~~ Much better !
-- Add keyboard navigation for items in the navbar
+~~- Add a searchBar commands in the navbar~~
+- Add keyboard navigation for items in the navbar, tabIndex=0 added.
 - Try to optimize the process of converting MD to HTML by concatening the subCommands together.
 - Change copy icon to something more comprehensive
 - Animate onClick copy
-- Add a searchBar commands in the navbar
 - Add smooth animations (optional)
 - Add clickable image when present with hover effect.
 
