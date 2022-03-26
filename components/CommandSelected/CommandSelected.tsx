@@ -7,10 +7,9 @@ import SubCommand from "./SubCommand";
 
 type CommandSelectedProps = {
   command: command;
-  assetsUrl: string;
 };
 
-const CommandSelected = ({ command, assetsUrl }: CommandSelectedProps) => {
+const CommandSelected = ({ command }: CommandSelectedProps) => {
   const DescMD = useMemo(
     () => getMDXComponent(command.description),
     [command.description]

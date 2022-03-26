@@ -11,18 +11,18 @@ This is a collection of linux oriented debian commands written in French present
 - ~~Add link style in markdown, see composer example~~
 - ~~Make title command bigger and nicer~~
 - ~~Reduce image size~~
-- Try to load the image inside the img tag with base64 / Server Side
-  - https://www.npmjs.com/package/image-to-base64
+~~- Try to load the image inside the img tag with base64 / Server Side~~ Much better !
+- Add keyboard navigation for items in the navbar
 - Try to optimize the process of converting MD to HTML by concatening the subCommands together.
-- Add clickable image when present with hover effect.
+- Change copy icon to something more comprehensive
 - Animate onClick copy
 - Add a searchBar commands in the navbar
-- Add keyboard navigation for items in the navbar
 - Add smooth animations (optional)
+- Add clickable image when present with hover effect.
 
 ## Deploy
 
 - Go into dir : `cd ~/linux-debian-commands`
 - Get the last commit : `git pull`
-- Kill the container called : `linux-debian-commands`
+- Kill the container : `sudo docker container kill linux-debian-commands`
 - Deploy with docker-compose : `sudo docker-compose -f docker-compose-prod.yml up -d --build --force-recreate`

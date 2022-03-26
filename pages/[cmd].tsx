@@ -8,20 +8,18 @@ import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
-import { bundleMDX } from "mdx-bundler";
-import AddMarkdownAndBase64 from "utils/replaceMdCommands";
+import fetchCommands from "utils/fetchCommands";
+import toMarkdown from "utils/toMarkdown";
+import toBase64 from "utils/toBase64";
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const commands: command[] = (
-    await axios.get(
-      (process.env.API_DOMAIN + "/items/commands?fields=*.*") as string
-    )
-  ).data.data.filter((c: command) => c.sub_commands.length !== 0);
+  const commands = await fetchCommands();
+  const commandsMD = await toMarkdown(commands);
+  const commandsBase64 = await toBase64(commandsMD);
 
   return {
     props: {
-      commands: await AddMarkdownAndBase64(commands),
-      assetsUrl: process.env.API_DOMAIN + "/assets/",
+      commands: commandsBase64,
     },
     revalidate: 60,
   };
@@ -48,10 +46,9 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 
 interface HomeProps {
   commands: command[];
-  assetsUrl: string;
 }
 
-const Home: NextPage<HomeProps> = ({ commands, assetsUrl }) => {
+const Home: NextPage<HomeProps> = ({ commands }) => {
   const router = useRouter();
   const [commandSelected, setCommandSelected] = useState<command>(
     commands.find((c) => c.slug === router.query.cmd) as command
@@ -78,7 +75,7 @@ const Home: NextPage<HomeProps> = ({ commands, assetsUrl }) => {
         commands={commands}
         setCommandSelected={setCommandSelected}
       />
-      <CommandSelected command={commandSelected} assetsUrl={assetsUrl} />
+      <CommandSelected command={commandSelected} />
       <Footer />
     </div>
   );

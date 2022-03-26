@@ -1,5 +1,7 @@
 import { command } from "types/command.type";
 import { useRouter } from "next/router";
+import { ChangeEvent, useState } from "react";
+import SearchIcon from "components/svg/SearchIcon";
 
 type NavbarProps = {
   commands: command[];
@@ -13,40 +15,58 @@ const Navbar = ({
   commandSelected,
 }: NavbarProps) => {
   const router = useRouter();
+  const [searchedValue, setSearchValue] = useState("");
 
   const handleClick = (c: command) => {
-    router.replace(`/${c.slug}`, "", {
-      shallow: true,
-    });
+    if (commandSelected.id === c.id)
+      router.replace(`/${c.slug}`, "", {
+        shallow: true,
+      });
     setCommandSelected(c);
+  };
+
+  const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(String(e.target.value).toLowerCase());
   };
 
   if (commandSelected) {
     return (
       <nav>
+        <div className="search-area">
+          <SearchIcon />
+          <input
+            type="text"
+            value={searchedValue}
+            onChange={handleSearchInput}
+            placeholder="Recherche"
+          />
+          <button onClick={() => setSearchValue("")}>x</button>
+        </div>
+        {commands.filter((c) => c.tab.includes(searchedValue)).length === 0 && (
+          <div className="cmd-not-found">Pas de commandes trouvées</div>
+        )}
         <ul>
           {commands
             .sort((a, b) => a.cmd_order - b.cmd_order)
-            .map((c) => (
+            .filter((c) => c.tab.includes(searchedValue))
+            .map((c, i, array) => (
               <li
                 key={c.id}
+                tabIndex={0}
                 className={
-                  (c.net ? "net-cmd" : "") +
-                  (commandSelected.id === c.id ? " item-selected" : "")
+                  (commandSelected.id === c.id ? "item-selected" : "") +
+                  (c.net ? " net-cmd" : "")
                 }
+                onClick={() => handleClick(c)}
               >
-                {commandSelected.id === c.id ? (
-                  <div>{c.tab}</div>
-                ) : (
-                  <div onClick={() => handleClick(c)}>{c.tab}</div>
-                )}
+                {c.tab}
               </li>
             ))}
         </ul>
       </nav>
     );
   } else {
-    return <></>
+    return <></>;
   }
 };
 

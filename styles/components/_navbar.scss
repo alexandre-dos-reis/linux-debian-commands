@@ -5,6 +5,63 @@ nav {
     grid-area: navbar;
     border-right: $borderStyle;
     padding-right: 10px;
+    overflow-y: scroll;
+
+    .search-area {
+        display: flex;
+        margin: 20px 10px;
+        font-family: monospace;
+        color: $grey;
+        font-size: 1.2rem;
+        border-radius: 20px;
+        overflow: hidden;
+
+        $sizeBorder: 3px;
+        border: $sizeBorder solid $lightGrey;
+
+        &:hover {
+            border: $sizeBorder solid $linkColor;
+        }
+
+        & > * {
+            border: 1px solid transparent;
+            background-color: white;
+            padding: 5px 10px;
+        }
+
+        .search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            // padding: 5px 10px;
+            width: 100%;
+            outline: none;
+            font-size: 1.2rem;
+            color: $black;
+        }
+
+        // Reste button
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $grey;
+            font-size: 1.2rem;
+            width: max-content;
+            // border-left: 1px solid $lightGrey;
+            // padding: 0 10px;
+            &:active {
+                background-color: $lightGrey;
+            }
+        }
+    }
+
+    .cmd-not-found {
+        text-align: center;
+    }
 
     ul {
         display: flex;
