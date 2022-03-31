@@ -1,6 +1,6 @@
 import { command } from "types/command.type";
 import SubCommand from "./SubCommand";
-import MdxComponent from "components/MDX/MdxComponent";
+import MdxComponent from "components/MdxComponentClient/MdxComponent";
 
 type CommandSelectedProps = {
   command: command;
@@ -18,13 +18,7 @@ const CommandSelected = ({ command }: CommandSelectedProps) => {
           <h2>{command.title}</h2>
         )}
         <MdxComponent code={command.description} />
-        <ul>
-          {command.sub_commands
-            .sort((a, b) => a.sort - b.sort)
-            .map((sc) => (
-              <SubCommand key={sc.id} subCommand={sc} />
-            ))}
-        </ul>
+        <MdxComponent code={command.sub_cmds_mdx_to_html} />
       </main>
     );
   } else {

@@ -1,7 +1,7 @@
 import CopyToClipboard from "components/CopyToClipboard/CopyToClipboard";
-import CopyIcon from "components/svg/Copy";
+import CopyIcon from "components/svg/CopyIcon";
 import type { subCommand } from "types/subCommand.type";
-import MdxComponent from "components/MDX/MdxComponent";
+import MdxComponent from "components/MdxComponentClient/MdxComponent";
 
 type SubCommandProps = {
   subCommand: subCommand;

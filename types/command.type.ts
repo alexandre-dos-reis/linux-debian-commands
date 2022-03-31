@@ -9,5 +9,6 @@ export interface command {
     tab:          string;
     description:  string;
     net:          boolean;
+    sub_cmds_mdx_to_html: string;
     sub_commands: subCommand[];
 }

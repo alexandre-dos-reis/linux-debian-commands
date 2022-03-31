@@ -8,7 +8,7 @@ import Footer from "components/Footer/Footer";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 import fetchCommands from "utils/fetchCommands";
-import mdToHtml from "utils/toMarkdown";
+import mdToHtml from "utils/MDX/convertMDXtoHTML";
 import toBase64 from "utils/toBase64";
 
 export const getStaticProps: GetStaticProps = async () => {
