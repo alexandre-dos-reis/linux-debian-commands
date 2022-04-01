@@ -1,6 +1,6 @@
 import { command } from "types/command.type";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, KeyboardEvent, useRef } from "react";
 import SearchIcon from "components/svg/SearchIcon";
 
 type NavbarProps = {
@@ -16,12 +16,19 @@ const Navbar = ({
 }: NavbarProps) => {
   const router = useRouter();
   const [searchedValue, setSearchValue] = useState("");
+  // const liRef = useRef(null)
 
-  const handleClick = (c: command) => {
+  const selectCommand = (c: command) => {
     router.replace(`/${c.slug}`, "", {
       shallow: true,
     });
     setCommandSelected(c);
+  };
+
+  const handleKeyPress = (c: command, e: KeyboardEvent<HTMLLIElement>) => {
+    e.key === "Enter" && selectCommand(c);
+    // e.key === "ArrowLeft" && selectCommand(commands[commands.findIndex(cmd => cmd === c) - 1])
+    // e.key === "ArrowRight" && selectCommand(commands[commands.findIndex(cmd => cmd === c) + 1])
   };
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +66,8 @@ const Navbar = ({
                   (commandSelected.id === c.id ? "item-selected" : "") +
                   (c.net ? " net-cmd" : "")
                 }
-                onClick={() => handleClick(c)}
+                onClick={() => selectCommand(c)}
+                onKeyDown={(e) => handleKeyPress(c, e)}
               >
                 {c.tab}
               </li>
