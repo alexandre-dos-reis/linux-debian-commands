@@ -14,11 +14,10 @@ This is a collection of linux oriented debian commands written in French present
 ~~- Try to load the image inside the img tag with base64 / Server Side~~ Much better !
 ~~- Add a searchBar commands in the navbar~~
 - Add keyboard navigation for items in the navbar, tabIndex=0 added.
-- Try to optimize the process of converting MD to HTML by concatening the subCommands together.
-- Change copy icon to something more comprehensive
+- Change copy icon to something more intuitive.
 - Animate onClick copy
 - Add smooth animations (optional)
-- Add clickable image when present with hover effect.
+- Make the app responsive
 
 ## Deploy
 
