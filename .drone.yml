@@ -12,6 +12,6 @@ server:
     from_secret: PASSWORD
 
 steps:
-- name: greeting
+- name: test
   commands:
-  - echo hello world
+  - docker ps
