@@ -14,4 +14,4 @@ server:
 steps:
 - name: test
   commands:
-  - sudo docker ps
+  - sudo docker-compose -f docker-compose-prod.yml up -d --build --force-recreate
