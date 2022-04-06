@@ -1,0 +1,17 @@
+---
+kind: pipeline
+type: ssh
+name: default
+
+server:
+  host:
+    from_secret: HOST_ADDR
+  user:
+    from_secret: USER
+  password:
+    from_secret: PASSWORD
+
+steps:
+- name: greeting
+  commands:
+  - echo hello world
