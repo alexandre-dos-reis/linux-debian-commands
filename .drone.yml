@@ -14,4 +14,4 @@ server:
 steps:
 - name: test
   commands:
-  - docker ps
+  - sudo docker ps
