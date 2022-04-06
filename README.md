@@ -1,5 +1,7 @@
 # Commands GNU/Linux | Debian | Ubuntu
 
+[![Build Status](https://drone.reges.fr/api/badges/alexandre-dos-reis/linux-debian-commands/status.svg?ref=refs/heads/main)](https://drone.reges.fr/alexandre-dos-reis/linux-debian-commands)
+
 This is a collection of linux oriented debian commands written in French presented in a clean and simple web browser interface. Heavy use of markdown.
 
 ## Todos
@@ -18,6 +20,7 @@ This is a collection of linux oriented debian commands written in French present
 - Animate onClick copy
 - Add smooth animations (optional)
 - Make the app responsive
+- Add drone CI config to deploy automagically.
 
 ## Deploy
 
