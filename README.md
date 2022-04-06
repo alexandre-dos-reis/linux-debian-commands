@@ -19,6 +19,7 @@ This is a collection of linux oriented debian commands written in French present
 - Animate onClick copy
 - Add smooth animations (optional)
 - Add clickable image when present with hover effect.
+- Add drone CI config to deploy automagically.
 
 ## Deploy
 
