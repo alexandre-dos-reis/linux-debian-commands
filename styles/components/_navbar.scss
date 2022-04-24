@@ -7,53 +7,66 @@ nav {
     padding-right: 10px;
     overflow-y: scroll;
 
-    .search-area {
-        display: flex;
-        margin: 20px 10px;
-        font-family: monospace;
-        color: $grey;
-        font-size: 1.2rem;
-        border-radius: 20px;
-        overflow: hidden;
+    .search-area-wrapper {
 
-        $sizeBorder: 3px;
-        border: $sizeBorder solid $lightGrey;
+        background: linear-gradient(180deg, $white 95%, rgba(0,0,0,0) 100%);
+        position: sticky;
+        top: 0;
+        padding: 20px 10px;
+        padding-bottom: 20px;
 
-        &:hover {
-            border: $sizeBorder solid $linkColor;
-        }
-
-        & > * {
-            border: 1px solid transparent;
-            background-color: white;
-            padding: 5px 10px;
-        }
-
-        .search-icon {
+        .search-area {
+            $radius: 20px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        input {
-            // padding: 5px 10px;
-            width: 100%;
-            outline: none;
-            font-size: 1.2rem;
-            color: $black;
-        }
-
-        // Reste button
-        button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            // margin: 20px 10px;
+            font-family: monospace;
             color: $grey;
             font-size: 1.2rem;
-            width: max-content;
-            cursor: pointer;
-            &:active {
-                color: red;
+            border-radius: $radius;
+            overflow: hidden;
+            box-shadow: var(--shadow-elevation-low);
+
+            $sizeBorder: 3px;
+            border: $sizeBorder solid $lightGrey;
+
+            &:hover {
+                border: $sizeBorder solid $linkColor;
+            }
+
+            & > * {
+                border: 1px solid transparent;
+                background-color: white;
+                padding: 5px 10px;
+            }
+
+            .search-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            input {
+                // padding: 5px 10px;
+                width: 100%;
+                outline: none;
+                font-size: 1.2rem;
+                color: $black;
+            }
+
+            // Reset button
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $grey;
+                font-size: 1.2rem;
+                width: max-content;
+                cursor: pointer;
+                &:active {
+                    color: red;
+                }
+                border-top-right-radius: $radius;
+                border-bottom-right-radius: $radius;
             }
         }
     }

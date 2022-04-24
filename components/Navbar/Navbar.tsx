@@ -42,15 +42,17 @@ const Navbar = ({
 
     return (
       <nav>
-        <div className="search-area">
-          <SearchIcon />
-          <input
-            type="text"
-            value={searchedValue}
-            onChange={handleSearchInput}
-            placeholder="Recherche"
-          />
-          <button onClick={() => setSearchValue("")}>x</button>
+        <div className="search-area-wrapper">
+          <div className="search-area">
+            <SearchIcon />
+            <input
+              type="text"
+              value={searchedValue}
+              onChange={handleSearchInput}
+              placeholder="Recherche"
+            />
+            <button onClick={() => setSearchValue("")}>x</button>
+          </div>
         </div>
         {filteredCommands.length === 0 && (
           <div className="cmd-not-found">Aucune commandes trouvées !</div>

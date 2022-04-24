@@ -15,12 +15,13 @@ This is a collection of linux oriented debian commands written in French present
 - ~~Reduce image size~~
 ~~- Try to load the image inside the img tag with base64 / Server Side~~ Much better !
 ~~- Add a searchBar commands in the navbar~~
+~~- Add drone CI config to deploy automagically.~~
+- Decompose the deploy process to avoid downtime, docker build...
 - Add keyboard navigation for items in the navbar, tabIndex=0 added.
 - Change copy icon to something more intuitive.
 - Animate onClick copy
 - Add smooth animations (optional)
 - Make the app responsive
-- Add drone CI config to deploy automagically.
 
 ## Deploy
 
