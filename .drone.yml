@@ -16,3 +16,4 @@ steps:
   commands:
   - sudo docker-compose -f docker-compose-prod.yml build --pull --no-cache --force-rm
   - sudo docker-compose -f docker-compose-prod.yml up -d --force-recreate
+  - sudo docker image prune -af
