@@ -1,14 +1,14 @@
 FROM node:16 as builder
-RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-RUN mkdir /app
-WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install
-ADD . .
-RUN pnpm build
+RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm && \
+    mkdir -p /app
+COPY . /app
+RUN cd /app && \
+    pnpm install && \
+    pnpm build
+
+FROM node:16-alpine as runner
+RUN mkdir -p /app
+COPY --from=builder /app /app
 EXPOSE 3000
-
-CMD [ "pnpm", "start" ]
-
-# FROM lipanski/docker-static-website:latest
-# COPY --from=builder /app/out .
+WORKDIR /app
+ENTRYPOINT [ "npm", "run", "start" ]
