@@ -16,7 +16,7 @@ const Footer = ({}: FooterProps) => {
         |{" "}
         <span className="creator-site">
           <Link href="https://github.com/alexandre-dos-reis/linux-debian-commands">
-            <a target="_blank">Github Repo</a>
+            <a target="_blank">Code Source</a>
           </Link>
         </span>{" "}
         | {new Date().getFullYear()}
